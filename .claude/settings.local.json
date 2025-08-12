@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:coincodex.com)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}
