@@ -6,8 +6,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
+import json
 
 def setup_driver():
     chrome_options = Options()
@@ -339,7 +340,87 @@ def format_prediction_text(text):
     
     return text
 
-def update_readme(crypto_data):
+def parse_old_readme_predictions():
+    """Parse old README for yesterday's price predictions"""
+    try:
+        if not os.path.exists('README.md'):
+            return {}
+        
+        with open('README.md', 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Get tomorrow's date (what we predicted for "today")
+        today = datetime.now().strftime("%b %d, %Y")
+        
+        predictions = {}
+        
+        # Find each cryptocurrency section
+        sections = content.split('### ')
+        for section in sections[1:]:  # Skip first empty split
+            lines = section.split('\n')
+            crypto_name = lines[0].strip()
+            
+            # Look for price targets table
+            in_targets_table = False
+            for line in lines:
+                if 'Short-Term' in line and 'Price Targets' in line:
+                    in_targets_table = True
+                    continue
+                
+                if in_targets_table and '|' in line and today in line:
+                    # Extract predicted price for today
+                    parts = [p.strip() for p in line.split('|')]
+                    if len(parts) >= 3:
+                        price_str = parts[2].replace('*', '').replace('$', '').replace(',', '').strip()
+                        try:
+                            predicted_price = float(price_str)
+                            predictions[crypto_name] = predicted_price
+                            print(f"Found prediction for {crypto_name}: ${predicted_price}")
+                            break
+                        except ValueError:
+                            continue
+                elif in_targets_table and line.startswith('####'):
+                    break
+        
+        return predictions
+    except Exception as e:
+        print(f"Error parsing old README: {e}")
+        return {}
+
+def calculate_prediction_accuracy(old_predictions, crypto_data):
+    """Calculate prediction accuracy by comparing old predictions with current prices"""
+    accuracy_results = {}
+    
+    for crypto_name, predicted_price in old_predictions.items():
+        if crypto_name in crypto_data:
+            current_price_str = crypto_data[crypto_name].get('current_price')
+            if current_price_str:
+                try:
+                    # Extract numeric value from current price
+                    current_price = float(current_price_str.replace('$', '').replace(',', ''))
+                    
+                    # Calculate accuracy metrics
+                    error = abs(predicted_price - current_price)
+                    percentage_error = (error / current_price) * 100 if current_price > 0 else 0
+                    accuracy = max(0, 100 - percentage_error)
+                    
+                    accuracy_results[crypto_name] = {
+                        'predicted_price': predicted_price,
+                        'actual_price': current_price,
+                        'error': error,
+                        'percentage_error': percentage_error,
+                        'accuracy': accuracy,
+                        'direction_correct': (predicted_price > current_price) == (predicted_price > current_price)  # Always true for now, can be enhanced
+                    }
+                    
+                    print(f"{crypto_name}: Predicted ${predicted_price:.2f}, Actual ${current_price:.2f}, Accuracy: {accuracy:.1f}%")
+                    
+                except ValueError:
+                    continue
+    
+    return accuracy_results
+
+def update_readme(crypto_data, accuracy_results=None):
     """Update README.md with the scraped predictions for multiple cryptocurrencies"""
     current_time = datetime.now().strftime("%Y-%m-%d")
     
@@ -418,6 +499,28 @@ def update_readme(crypto_data):
     
     readme_content += """---
 
+## Prediction Accuracy Analysis
+
+"""
+    
+    # Add prediction accuracy section if we have results
+    if accuracy_results:
+        readme_content += f"*Last prediction check: {current_time}*\n\n"
+        readme_content += "| Cryptocurrency | Predicted Price | Actual Price | Error | Accuracy |\n"
+        readme_content += "|----------------|-----------------|--------------|-------|----------|\n"
+        
+        for crypto_name, result in accuracy_results.items():
+            readme_content += f"| {crypto_name} | **${result['predicted_price']:.2f}** | **${result['actual_price']:.2f}** | ${result['error']:.2f} | **{result['accuracy']:.1f}%** |\n"
+        
+        # Calculate overall accuracy
+        if accuracy_results:
+            avg_accuracy = sum(r['accuracy'] for r in accuracy_results.values()) / len(accuracy_results)
+            readme_content += f"\n**Overall Prediction Accuracy: {avg_accuracy:.1f}%**\n\n"
+    else:
+        readme_content += "*No previous predictions available for comparison.*\n\n"
+    
+    readme_content += """---
+
 **About**
 
 This data is automatically scraped from CoinCodex using automated tools for cryptocurrency price analysis and prediction tracking.
@@ -457,6 +560,10 @@ def main():
     driver = None
     
     try:
+        # Parse old predictions before scraping new data
+        print("Checking previous predictions...")
+        old_predictions = parse_old_readme_predictions()
+        
         driver = setup_driver()
         print("WebDriver initialized")
         
@@ -491,8 +598,14 @@ def main():
                 print(f"Error scraping {crypto_name}: {e}")
                 crypto_data[crypto_name] = {'predictions': [], 'current_price': None, 'price_targets': None}
         
+        # Calculate prediction accuracy if we have old predictions
+        accuracy_results = None
+        if old_predictions:
+            print("Calculating prediction accuracy...")
+            accuracy_results = calculate_prediction_accuracy(old_predictions, crypto_data)
+        
         # Update README with all collected data
-        update_readme(crypto_data)
+        update_readme(crypto_data, accuracy_results)
         print("README.md has been updated successfully with multi-crypto data")
         
     except Exception as e:
@@ -501,7 +614,7 @@ def main():
         update_readme({"Ethereum (ETH)": {'predictions': [], 'current_price': None, 'price_targets': None}, 
                       "Bitcoin (BTC)": {'predictions': [], 'current_price': None, 'price_targets': None},
                       "Ripple (XRP)": {'predictions': [], 'current_price': None, 'price_targets': None},
-                      "Gold": {'predictions': [], 'current_price': None, 'price_targets': None}})
+                      "Gold": {'predictions': [], 'current_price': None, 'price_targets': None}}, None)
         
     finally:
         if driver:
