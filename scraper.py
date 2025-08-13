@@ -262,6 +262,7 @@ def update_readme(crypto_data):
 **Sources:** 
 - [CoinCodex Ethereum Price Prediction](https://coincodex.com/crypto/ethereum/price-prediction/)
 - [CoinCodex Bitcoin Price Prediction](https://coincodex.com/crypto/bitcoin/price-prediction/)
+- [CoinCodex Ripple Price Prediction](https://coincodex.com/crypto/ripple/price-prediction/)
 - [CoinCodex Gold Forecast](https://coincodex.com/precious-metal/gold/forecast/)
 
 *Last updated: {current_time}*
@@ -326,6 +327,7 @@ def main():
     cryptos = {
         "Ethereum (ETH)": "https://coincodex.com/crypto/ethereum/price-prediction/",
         "Bitcoin (BTC)": "https://coincodex.com/crypto/bitcoin/price-prediction/",
+        "Ripple (XRP)": "https://coincodex.com/crypto/ripple/price-prediction/",
         "Gold": "https://coincodex.com/precious-metal/gold/forecast/"
     }
     
@@ -372,6 +374,7 @@ def main():
         # Create a basic README even if scraping fails
         update_readme({"Ethereum (ETH)": {'predictions': [], 'current_price': None}, 
                       "Bitcoin (BTC)": {'predictions': [], 'current_price': None},
+                      "Ripple (XRP)": {'predictions': [], 'current_price': None},
                       "Gold": {'predictions': [], 'current_price': None}})
         
     finally:
