@@ -81,6 +81,92 @@ def extract_price_predictions(driver, crypto_name):
         print(f"Error extracting predictions for {crypto_name}: {e}")
         return []
 
+def extract_price_targets_table(driver, crypto_name):
+    """Extract Short-Term Price Targets table data"""
+    try:
+        # Wait for table to load
+        time.sleep(3)
+        
+        # Look for table with headers that match price targets
+        table_selectors = [
+            "table",
+            ".table",
+            ".price-targets",
+            ".predictions-table",
+            "[class*='table']",
+            ".data-table"
+        ]
+        
+        price_targets = []
+        
+        for selector in table_selectors:
+            try:
+                tables = driver.find_elements(By.CSS_SELECTOR, selector)
+                for table in tables:
+                    # Check if this table contains price target data
+                    table_text = table.text.lower()
+                    if any(keyword in table_text for keyword in ['target', 'price', 'date', 'change', '%']):
+                        # Try to extract table headers and data
+                        headers = []
+                        rows_data = []
+                        
+                        # Get headers
+                        header_elements = table.find_elements(By.CSS_SELECTOR, "th, thead td")
+                        if header_elements:
+                            headers = [th.text.strip() for th in header_elements if th.text.strip()]
+                        
+                        # Get data rows
+                        row_elements = table.find_elements(By.CSS_SELECTOR, "tr")
+                        for row in row_elements:
+                            cells = row.find_elements(By.CSS_SELECTOR, "td")
+                            if cells and len(cells) >= 2:  # At least 2 columns
+                                row_data = [cell.text.strip() for cell in cells]
+                                # Filter rows that contain price or percentage data
+                                row_text = ' '.join(row_data).lower()
+                                if any(indicator in row_text for indicator in ['$', '%', 'price', 'target']):
+                                    rows_data.append(row_data)
+                        
+                        if headers and rows_data:
+                            price_targets.append({
+                                'headers': headers,
+                                'rows': rows_data[:5]  # Limit to first 5 rows
+                            })
+                            print(f"Found price targets table for {crypto_name} with {len(rows_data)} rows")
+                            return price_targets[0]  # Return first valid table
+                            
+            except Exception as e:
+                continue
+        
+        # Alternative approach: Look for specific text patterns that indicate price targets
+        try:
+            # Look for text containing date and price patterns
+            elements = driver.find_elements(By.XPATH, "//*[contains(text(), 'target') or contains(text(), 'Target')]")
+            for element in elements:
+                parent = element.find_element(By.XPATH, "./..")
+                text = parent.text
+                if '$' in text and any(month in text for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']):
+                    # Extract structured data from text
+                    lines = text.split('\n')
+                    target_data = []
+                    for line in lines:
+                        if '$' in line and any(month in line for month in ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']):
+                            target_data.append(line.strip())
+                    
+                    if target_data:
+                        return {
+                            'headers': ['Date', 'Price Target'],
+                            'rows': [[item.split()[0] if item.split() else '', item] for item in target_data[:5]]
+                        }
+        except:
+            pass
+        
+        print(f"Could not find price targets table for {crypto_name}")
+        return None
+        
+    except Exception as e:
+        print(f"Error extracting price targets table for {crypto_name}: {e}")
+        return None
+
 def extract_current_price(driver, crypto_name):
     """Extract current price from the webpage"""
     try:
@@ -278,21 +364,50 @@ def update_readme(crypto_data):
         if isinstance(crypto_info, dict) and 'predictions' in crypto_info:
             predictions = crypto_info['predictions']
             current_price = crypto_info['current_price']
+            price_targets = crypto_info.get('price_targets')
         else:
             # Backwards compatibility
             predictions = crypto_info
             current_price = None
+            price_targets = None
         
         if predictions:
             # Extract market data from first prediction for table
             market_data = extract_market_data(predictions[0], current_price) if predictions else {}
             
-            # Create table
+            # Create market summary table
+            readme_content += "#### Market Summary\n"
             readme_content += "| Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |\n"
             readme_content += "|---------------|------------------|------------|-----------|-------------------|------------|\n"
             readme_content += f"| ${market_data.get('current_price', 'N/A')} | **{market_data.get('price_prediction', 'N/A')}** | **{market_data.get('green_days', 'N/A')}** | **{market_data.get('sentiment', 'N/A')}** | **{market_data.get('fear_greed', 'N/A')}** | **{market_data.get('volatility', 'N/A')}** |\n\n"
             
+            # Add price targets table if available
+            if price_targets and price_targets.get('headers') and price_targets.get('rows'):
+                readme_content += f"#### Short-Term {crypto_name} Price Targets\n"
+                
+                # Create table headers
+                headers = price_targets['headers']
+                readme_content += "| " + " | ".join(headers) + " |\n"
+                readme_content += "|" + "|".join([" " + "-"*(len(h)+1) for h in headers]) + "|\n"
+                
+                # Add table rows
+                for row in price_targets['rows']:
+                    if len(row) == len(headers):
+                        formatted_row = []
+                        for cell in row:
+                            # Clean up cell content
+                            cleaned_cell = cell.replace('Buy', '').replace('Short', '').strip()
+                            
+                            # Bold only price values (with $), but not percentages
+                            if '$' in cleaned_cell:
+                                formatted_row.append(f"**{cleaned_cell}**")
+                            else:
+                                formatted_row.append(cleaned_cell)
+                        readme_content += "| " + " | ".join(formatted_row) + " |\n"
+                readme_content += "\n"
+            
             # Add formatted predictions (only first 2)
+            readme_content += "#### Analysis\n"
             for prediction in predictions[:2]:
                 formatted_text = format_prediction_text(prediction)
                 readme_content += f"{formatted_text}\n\n"
@@ -318,7 +433,14 @@ This data is automatically scraped from CoinCodex using automated tools for cryp
         else len(crypto_info) if isinstance(crypto_info, list) else 0 
         for crypto_info in crypto_data.values()
     )
-    print(f"README.md updated with {total_predictions} total predictions")
+    
+    total_price_targets = sum(
+        len(crypto_info.get('price_targets', {}).get('rows', [])) if isinstance(crypto_info, dict) and crypto_info.get('price_targets') 
+        else 0 
+        for crypto_info in crypto_data.values()
+    )
+    
+    print(f"README.md updated with {total_predictions} total predictions and {total_price_targets} price targets")
 
 def main():
     print("Starting CoinCodex multi-cryptocurrency price prediction scraper...")
@@ -351,10 +473,14 @@ def main():
                 # Extract predictions
                 predictions = extract_price_predictions(driver, crypto_name)
                 
-                # Store both predictions and current price
+                # Extract price targets table
+                price_targets = extract_price_targets_table(driver, crypto_name)
+                
+                # Store all data
                 crypto_data[crypto_name] = {
                     'predictions': predictions,
-                    'current_price': current_price
+                    'current_price': current_price,
+                    'price_targets': price_targets
                 }
                 print(f"Found {len(predictions)} predictions for {crypto_name}")
                 
@@ -363,7 +489,7 @@ def main():
                 
             except Exception as e:
                 print(f"Error scraping {crypto_name}: {e}")
-                crypto_data[crypto_name] = {'predictions': [], 'current_price': None}
+                crypto_data[crypto_name] = {'predictions': [], 'current_price': None, 'price_targets': None}
         
         # Update README with all collected data
         update_readme(crypto_data)
@@ -372,10 +498,10 @@ def main():
     except Exception as e:
         print(f"Error during scraping: {e}")
         # Create a basic README even if scraping fails
-        update_readme({"Ethereum (ETH)": {'predictions': [], 'current_price': None}, 
-                      "Bitcoin (BTC)": {'predictions': [], 'current_price': None},
-                      "Ripple (XRP)": {'predictions': [], 'current_price': None},
-                      "Gold": {'predictions': [], 'current_price': None}})
+        update_readme({"Ethereum (ETH)": {'predictions': [], 'current_price': None, 'price_targets': None}, 
+                      "Bitcoin (BTC)": {'predictions': [], 'current_price': None, 'price_targets': None},
+                      "Ripple (XRP)": {'predictions': [], 'current_price': None, 'price_targets': None},
+                      "Gold": {'predictions': [], 'current_price': None, 'price_targets': None}})
         
     finally:
         if driver:
