@@ -3,7 +3,9 @@
     "allow": [
       "WebFetch(domain:coincodex.com)",
       "Bash(mkdir:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(del test_timezone.py test_scraper_time.py)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }

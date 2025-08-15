@@ -7,8 +7,18 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime, timedelta
+import pytz
 import os
 import json
+
+def get_taiwan_time():
+    """Get current time in Taiwan timezone"""
+    taiwan_tz = pytz.timezone('Asia/Taipei')
+    return datetime.now(taiwan_tz)
+
+def format_taiwan_date(format_str="%Y-%m-%d"):
+    """Format Taiwan time with specified format"""
+    return get_taiwan_time().strftime(format_str)
 
 def setup_driver():
     chrome_options = Options()
@@ -349,8 +359,8 @@ def parse_old_readme_predictions():
         with open('README.md', 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Get tomorrow's date (what we predicted for "today")
-        today = datetime.now().strftime("%b %d, %Y")
+        # Get tomorrow's date (what we predicted for "today") in Taiwan time
+        today = format_taiwan_date("%b %d, %Y")
         
         predictions = {}
         
@@ -422,7 +432,7 @@ def calculate_prediction_accuracy(old_predictions, crypto_data):
 
 def update_readme(crypto_data, accuracy_results=None):
     """Update README.md with the scraped predictions for multiple cryptocurrencies"""
-    current_time = datetime.now().strftime("%Y-%m-%d")
+    current_time = format_taiwan_date("%Y-%m-%d")
     
     readme_content = f"""# Cryptocurrency & Asset Price Predictions
 
@@ -430,6 +440,7 @@ def update_readme(crypto_data, accuracy_results=None):
 - [CoinCodex Ethereum Price Prediction](https://coincodex.com/crypto/ethereum/price-prediction/)
 - [CoinCodex Bitcoin Price Prediction](https://coincodex.com/crypto/bitcoin/price-prediction/)
 - [CoinCodex Ripple Price Prediction](https://coincodex.com/crypto/ripple/price-prediction/)
+- [CoinCodex Solana Price Prediction](https://coincodex.com/crypto/solana/price-prediction/)
 - [CoinCodex Gold Forecast](https://coincodex.com/precious-metal/gold/forecast/)
 
 *Last updated: {current_time}*
@@ -505,7 +516,8 @@ def update_readme(crypto_data, accuracy_results=None):
     
     # Add prediction accuracy section if we have results
     if accuracy_results:
-        readme_content += f"*Last prediction check: {current_time}*\n\n"
+        accuracy_check_time = format_taiwan_date("%Y-%m-%d %H:%M:%S")
+        readme_content += f"*Last prediction check: {accuracy_check_time}*\n\n"
         readme_content += "| Cryptocurrency | Predicted Price | Actual Price | Error | Accuracy |\n"
         readme_content += "|----------------|-----------------|--------------|-------|----------|\n"
         
@@ -553,6 +565,7 @@ def main():
         "Ethereum (ETH)": "https://coincodex.com/crypto/ethereum/price-prediction/",
         "Bitcoin (BTC)": "https://coincodex.com/crypto/bitcoin/price-prediction/",
         "Ripple (XRP)": "https://coincodex.com/crypto/ripple/price-prediction/",
+        "Solana (SOL)": "https://coincodex.com/crypto/solana/price-prediction/",
         "Gold": "https://coincodex.com/precious-metal/gold/forecast/"
     }
     
@@ -614,6 +627,7 @@ def main():
         update_readme({"Ethereum (ETH)": {'predictions': [], 'current_price': None, 'price_targets': None}, 
                       "Bitcoin (BTC)": {'predictions': [], 'current_price': None, 'price_targets': None},
                       "Ripple (XRP)": {'predictions': [], 'current_price': None, 'price_targets': None},
+                      "Solana (SOL)": {'predictions': [], 'current_price': None, 'price_targets': None},
                       "Gold": {'predictions': [], 'current_price': None, 'price_targets': None}}, None)
         
     finally:
