@@ -430,6 +430,171 @@ def calculate_prediction_accuracy(old_predictions, crypto_data):
     
     return accuracy_results
 
+def generate_summary_table(crypto_data):
+    """Generate comprehensive prediction summary table"""
+    tomorrow_taiwan = (get_taiwan_time() + timedelta(days=1)).strftime("%Y年%m月%d日")
+    
+    table_content = f"""## {tomorrow_taiwan}價格預測總覽
+
+| 幣種/資產 | 目前價格 | 明日預測價格 | 潛在投報率 | 市場情緒 | 恐慌貪婪指數 | 波動率 |
+|---------|---------|-------------|-----------|----------|------------|--------|
+"""
+    
+    summary_data = []
+    
+    for crypto_name, crypto_info in crypto_data.items():
+        if isinstance(crypto_info, dict) and 'predictions' in crypto_info:
+            predictions = crypto_info['predictions']
+            current_price = crypto_info.get('current_price', 'N/A')
+            price_targets = crypto_info.get('price_targets')
+        else:
+            continue
+        
+        if not predictions:
+            continue
+            
+        # Extract market data
+        market_data = extract_market_data(predictions[0], current_price) if predictions else {}
+        
+        # Get tomorrow's predicted price from price targets
+        tomorrow_price = "N/A"
+        tomorrow_roi = "N/A"
+        
+        if price_targets and price_targets.get('rows'):
+            # Handle Gold differently (monthly format vs daily format)
+            if 'Gold' in crypto_name:
+                # Gold uses monthly format, use current month's data
+                first_row = price_targets['rows'][0] if price_targets['rows'] else None
+                if first_row and len(first_row) >= 3:
+                    # For Gold, use the Average Price (column 2) as tomorrow's price
+                    tomorrow_price = f"**{first_row[2]}**" if '$' in str(first_row[2]) else f"**${first_row[2]}**"
+                    # For Gold ROI, use the Potential ROI column (last column)
+                    if len(first_row) >= 5:
+                        roi_text = str(first_row[4]).replace('Buy', '').replace('Short', '').replace('\n', '').strip()
+                        tomorrow_roi = f"**{roi_text}**" if '%' in roi_text else f"**{roi_text}**"
+            else:
+                # Crypto currencies use daily format
+                tomorrow_str = (get_taiwan_time() + timedelta(days=1)).strftime("%b %d, %Y")
+                for row in price_targets['rows']:
+                    if len(row) >= 3 and tomorrow_str in row[0]:
+                        tomorrow_price = f"**{row[1]}**" if '$' in str(row[1]) else f"**${row[1]}**"
+                        # Clean ROI field - remove Buy/Short indicators and newlines
+                        roi_text = str(row[2]).replace('Buy', '').replace('Short', '').replace('\n', '').strip()
+                        tomorrow_roi = f"**{roi_text}**" if '%' in roi_text else f"**+{roi_text}**" if roi_text != "N/A" else "**N/A**"
+                        break
+                
+                # If not found, use first available prediction
+                if tomorrow_price == "N/A" and price_targets['rows']:
+                    first_row = price_targets['rows'][0]
+                    if len(first_row) >= 3:
+                        tomorrow_price = f"**{first_row[1]}**" if '$' in str(first_row[1]) else f"**${first_row[1]}**"
+                        # Clean ROI field - remove Buy/Short indicators and newlines
+                        roi_text = str(first_row[2]).replace('Buy', '').replace('Short', '').replace('\n', '').strip()
+                        tomorrow_roi = f"**{roi_text}**" if '%' in roi_text else f"**+{roi_text}**" if roi_text != "N/A" else "**N/A**"
+        
+        # Determine emoji based on sentiment
+        sentiment_emoji = ""
+        sentiment = market_data.get('sentiment', 'N/A')
+        if sentiment == 'Bullish':
+            sentiment_emoji = "🟢"
+        elif sentiment == 'Bearish':
+            sentiment_emoji = "🔴"
+        elif sentiment == 'Neutral':
+            sentiment_emoji = "🟡"
+        
+        # Format current price
+        formatted_current_price = f"${market_data.get('current_price', 'N/A')}"
+        if formatted_current_price != "$N/A":
+            # Add commas for thousands
+            try:
+                price_num = market_data.get('current_price', '').replace(',', '')
+                if price_num:
+                    formatted_current_price = f"${float(price_num):,}"
+            except:
+                pass
+        
+        # Collect data for sorting
+        roi_value = 0
+        try:
+            roi_str = tomorrow_roi.replace('**', '').replace('+', '').replace('%', '')
+            roi_value = float(roi_str) if roi_str != "N/A" else 0
+        except:
+            roi_value = 0
+            
+        summary_data.append({
+            'name': crypto_name,
+            'current_price': formatted_current_price,
+            'tomorrow_price': tomorrow_price,
+            'roi': tomorrow_roi,
+            'roi_value': roi_value,
+            'sentiment': f"{sentiment_emoji} **{sentiment}**" if sentiment != 'N/A' else 'N/A',
+            'fear_greed': market_data.get('fear_greed', 'N/A'),
+            'volatility': market_data.get('volatility', 'N/A')
+        })
+    
+    # Sort by ROI descending
+    summary_data.sort(key=lambda x: x['roi_value'], reverse=True)
+    
+    # Add rows to table
+    for data in summary_data:
+        table_content += f"| **{data['name']}** | {data['current_price']} | {data['tomorrow_price']} | {data['roi']} | {data['sentiment']} | {data['fear_greed']} | {data['volatility']} |\n"
+    
+    # Add analysis section
+    table_content += f"""
+## 重點摘要
+
+### 📈 最佳表現預測
+"""
+    
+    # Show top 3 performers
+    positive_performers = [d for d in summary_data if d['roi_value'] > 0][:3]
+    for i, data in enumerate(positive_performers, 1):
+        roi_clean = data['roi'].replace('**', '')
+        table_content += f"{i}. **{data['name']}**: {roi_clean} 潛在收益\n"
+    
+    # Show declining predictions
+    negative_performers = [d for d in summary_data if d['roi_value'] < 0]
+    if negative_performers:
+        table_content += f"""
+### 📉 下跌預測
+"""
+        for data in negative_performers:
+            roi_clean = data['roi'].replace('**', '')
+            table_content += f"- **{data['name']}**: {roi_clean} 預期下跌\n"
+    
+    # Market sentiment analysis
+    bullish_count = len([d for d in summary_data if 'Bullish' in d['sentiment']])
+    bearish_count = len([d for d in summary_data if 'Bearish' in d['sentiment']])
+    
+    table_content += f"""
+### 🎯 市場情緒分析
+- **整體市場情緒**: """
+    
+    if bullish_count > bearish_count:
+        table_content += "大部分加密貨幣呈現**看漲**態勢\n"
+    elif bearish_count > bullish_count:
+        table_content += "大部分資產呈現**看跌**態勢\n"
+    else:
+        table_content += "市場情緒**中性**\n"
+    
+    # Add fear & greed analysis if available
+    fear_greed_values = [d['fear_greed'] for d in summary_data if d['fear_greed'] != 'N/A']
+    if fear_greed_values:
+        table_content += f"- **恐慌貪婪指數**: {fear_greed_values[0]} - 顯示市場情緒狀態\n"
+    
+    # Find unique trends
+    gold_data = [d for d in summary_data if 'Gold' in d['name']]
+    crypto_data_only = [d for d in summary_data if 'Gold' not in d['name']]
+    
+    if gold_data and crypto_data_only:
+        gold_roi = gold_data[0]['roi_value']
+        avg_crypto_roi = sum(d['roi_value'] for d in crypto_data_only) / len(crypto_data_only)
+        
+        if gold_roi < 0 and avg_crypto_roi > 0:
+            table_content += "- **黃金**: 唯一呈現看跌趨勢的資產\n"
+    
+    return table_content + "\n"
+
 def update_readme(crypto_data, accuracy_results=None):
     """Update README.md with the scraped predictions for multiple cryptocurrencies"""
     current_time = format_taiwan_date("%Y-%m-%d")
@@ -444,6 +609,8 @@ def update_readme(crypto_data, accuracy_results=None):
 - [CoinCodex Gold Forecast](https://coincodex.com/precious-metal/gold/forecast/)
 
 *Last updated: {current_time}*
+
+{generate_summary_table(crypto_data)}
 
 ## Current Price Predictions from CoinCodex
 
@@ -531,7 +698,11 @@ def update_readme(crypto_data, accuracy_results=None):
     else:
         readme_content += "*No previous predictions available for comparison.*\n\n"
     
-    readme_content += """---
+    taiwan_timestamp = get_taiwan_time().strftime("%Y-%m-%d %H:%M:%S")
+    readme_content += f"""---
+
+*最後更新時間: {taiwan_timestamp} (台灣時間)*
+*資料來源: CoinCodex 自動化價格預測*
 
 **About**
 
