@@ -7,26 +7,28 @@
 - [CoinCodex Solana Price Prediction](https://coincodex.com/crypto/solana/price-prediction/)
 - [CoinCodex Gold Forecast](https://coincodex.com/precious-metal/gold/forecast/)
 
-*Last updated: 2025-08-16*
+*Last updated: 2025-08-17*
 
-## 2025年08月17日價格預測總覽
+## 2025年08月18日價格預測總覽
 
 | 幣種/資產 | 目前價格 | 明日預測價格 | 潛在投報率 | 市場情緒 | 恐慌貪婪指數 | 波動率 |
 |---------|---------|-------------|-----------|----------|------------|--------|
-| **Solana (SOL)** | $184.0 | **$ 184.40** | **1.12%** | 🟢 **Bullish** | 60 (Greed) | 6.00% |
-| **Gold** | $3,340.0 | **$ 3,286.25** | **0.82%** | 🔴 **Bearish** | N/A | 0.90% |
-| **Ripple (XRP)** | $3.0 | **$ 3.06** | **0.75%** | 🟡 **Neutral** | 60 (Greed) | 5.50% |
+| **Bitcoin (BTC)** | $117,662.0 | **$ 119,258** | **1.52%** | 🟢 **Bullish** | 56 (Greed) | 1.66% |
+| **Ripple (XRP)** | $3.0 | **$ 3.07** | **1.11%** | 🟡 **Neutral** | 56 (Greed) | 5.38% |
+| **Gold** | $3,337.0 | **$ 3,292.84** | **0.59%** | 🔴 **Bearish** | N/A | 0.89% |
+| **Ethereum (ETH)** | $4,400.0 | **$ 4,447.53** | **0.37%** | 🟢 **Bullish** | 56 (Greed) | 8.92% |
+| **Solana (SOL)** | $189.0 | **$ 189.00** | **0.20%** | 🟢 **Bullish** | 56 (Greed) | 5.95% |
 
 ## 重點摘要
 
 ### 📈 最佳表現預測
-1. **Solana (SOL)**: 1.12% 潛在收益
-2. **Gold**: 0.82% 潛在收益
-3. **Ripple (XRP)**: 0.75% 潛在收益
+1. **Bitcoin (BTC)**: 1.52% 潛在收益
+2. **Ripple (XRP)**: 1.11% 潛在收益
+3. **Gold**: 0.59% 潛在收益
 
 ### 🎯 市場情緒分析
-- **整體市場情緒**: 市場情緒**中性**
-- **恐慌貪婪指數**: 60 (Greed) - 顯示市場情緒狀態
+- **整體市場情緒**: 大部分加密貨幣呈現**看漲**態勢
+- **恐慌貪婪指數**: 56 (Greed) - 顯示市場情緒狀態
 
 
 
@@ -34,13 +36,47 @@
 
 ### Ethereum (ETH)
 
-No predictions available at this time.
+#### Market Summary
+| Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
+|---------------|------------------|------------|-----------|-------------------|------------|
+| $4,400 | **$4,876.08** | **18/30 (60%)** | **Bullish** | **56 (Greed)** | **8.92%** |
+
+#### Short-Term Ethereum (ETH) Price Targets
+| Date | Prediction | Potential ROI |
+| -----| -----------| --------------|
+| Aug 17, 2025 | **$ 4,400.19** | 0.70% |
+| Aug 18, 2025 | **$ 4,447.53** | 0.37% |
+| Aug 19, 2025 | **$ 4,531.85** | 2.27% |
+| Aug 20, 2025 | **$ 4,709.62** | 6.29% |
+| Aug 21, 2025 | **$ 4,836.39** | 9.15% |
+
+#### Analysis
+According to our current Ethereum price prediction, the price of Ethereum is predicted to rise by **10.82%** and reach **$ 4,876.08** by September 15, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **56 (Greed)**. Ethereum recorded 18/**30 (60%)** green days with **8.92%** price volatility over the last 30 days. Based on the Ethereum forecast, it's now a good time to **buy Ethereum**.
+
+Over the next five days, Ethereum will reach the highest price of **$ 4,836.39** on Aug 21, 2025, which would represent **9.15%** growth compared to the current price. This follows a **3.53%** price change over the last 7 days.
 
 ---
 
 ### Bitcoin (BTC)
 
-No predictions available at this time.
+#### Market Summary
+| Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
+|---------------|------------------|------------|-----------|-------------------|------------|
+| $117,662 | **$129,828** | **13/30 (43%)** | **Bullish** | **56 (Greed)** | **1.66%** |
+
+#### Short-Term Bitcoin (BTC) Price Targets
+| Date | Prediction | Potential ROI |
+| -----| -----------| --------------|
+| Aug 17, 2025 | **$ 118,836** | 1.16% |
+| Aug 18, 2025 | **$ 119,258** | 1.52% |
+| Aug 19, 2025 | **$ 119,680** | 1.88% |
+| Aug 20, 2025 | **$ 120,103** | 2.24% |
+| Aug 21, 2025 | **$ 120,525** | 2.60% |
+
+#### Analysis
+According to our current Bitcoin price prediction, the price of Bitcoin is predicted to rise by **10.34%** and reach **$ 129,828** by September 14, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **56 (Greed)**. Bitcoin recorded 13/**30 (43%)** green days with **1.66%** price volatility over the last 30 days. Based on the Bitcoin forecast, it's now a good time to **buy Bitcoin**.
+
+Over the next five days, Bitcoin will reach the highest price of **$ 120,525** on Aug 21, 2025, which would represent **2.60%** growth compared to the current price. This follows a **0.76%** price change over the last 7 days.
 
 ---
 
@@ -49,21 +85,21 @@ No predictions available at this time.
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $3 | **$3.07** | **14/30 (47%)** | **Neutral** | **60 (Greed)** | **5.50%** |
+| $3 | **$3.08** | **13/30 (43%)** | **Neutral** | **56 (Greed)** | **5.38%** |
 
 #### Short-Term Ripple (XRP) Price Targets
 | Date | Prediction | Potential ROI |
 | -----| -----------| --------------|
-| Aug 16, 2025 | **$ 3.10** | 0.30% |
-| Aug 17, 2025 | **$ 3.06** | 0.75% |
-| Aug 18, 2025 | **$ 3.04** | 1.39% |
-| Aug 19, 2025 | **$ 3.04** | 1.35% |
-| Aug 20, 2025 | **$ 3.08** | 0.20% |
+| Aug 17, 2025 | **$ 3.11** | 0.07% |
+| Aug 18, 2025 | **$ 3.07** | 1.11% |
+| Aug 19, 2025 | **$ 3.05** | 1.75% |
+| Aug 20, 2025 | **$ 3.06** | 1.70% |
+| Aug 21, 2025 | **$ 3.09** | 0.56% |
 
 #### Analysis
-According to our current XRP price prediction, the price of XRP is predicted to drop by **-0.75%** and reach **$ 3.07** by September 14, 2025. Per our technical indicators, the current sentiment is Neutral while the Fear & Greed Index is showing **60 (Greed)**. XRP recorded 14/**30 (47%)** green days with **5.50%** price volatility over the last 30 days. Based on the XRP forecast, it's now a good time to buy XRP.
+According to our current XRP price prediction, the price of XRP is predicted to drop by **-0.74%** and reach **$ 3.08** by September 15, 2025. Per our technical indicators, the current sentiment is Neutral while the Fear & Greed Index is showing **56 (Greed)**. XRP recorded 13/**30 (43%)** green days with **5.38%** price volatility over the last 30 days. Based on the XRP forecast, it's now a good time to buy XRP.
 
-Over the next five days, XRP will reach the highest price of **$ 3.10** tomorrow, which would represent **0.30%** growth compared to the current price. This follows a **-6.58%** price change over the last 7 days.
+The price of XRP is predicted to trend downward in the coming days, dipping as low as **$ 0.00** by Invalid Date. This would represent a **-100.00%** dip compared to today’s rates.
 
 ---
 
@@ -72,21 +108,21 @@ Over the next five days, XRP will reach the highest price of **$ 3.10** tomorrow
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $184 | **$192.44** | **17/30 (57%)** | **Bullish** | **60 (Greed)** | **6.00%** |
+| $189 | **$196.89** | **16/30 (53%)** | **Bullish** | **56 (Greed)** | **5.95%** |
 
 #### Short-Term Solana (SOL) Price Targets
 | Date | Prediction | Potential ROI |
 | -----| -----------| --------------|
-| Aug 16, 2025 | **$ 184.29** | 1.18% |
-| Aug 17, 2025 | **$ 184.40** | 1.12% |
-| Aug 18, 2025 | **$ 184.51** | 1.06% |
-| Aug 19, 2025 | **$ 184.63** | 1.00% |
-| Aug 20, 2025 | **$ 184.86** | 0.87% |
+| Aug 17, 2025 | **$ 188.89** | 0.26% |
+| Aug 18, 2025 | **$ 189.00** | 0.20% |
+| Aug 19, 2025 | **$ 189.11** | 0.14% |
+| Aug 20, 2025 | **$ 189.22** | 0.08% |
+| Aug 21, 2025 | **$ 189.45** | 0.03% |
 
 #### Analysis
-According to our current Solana price prediction, the price of Solana is predicted to rise by **4.42%** and reach **$ 192.44** by September 14, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **60 (Greed)**. Solana recorded 17/**30 (57%)** green days with **6.00%** price volatility over the last 30 days. Based on the Solana forecast, it's now a good time to buy Solana.
+According to our current Solana price prediction, the price of Solana is predicted to rise by **4.24%** and reach **$ 196.89** by September 15, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **56 (Greed)**. Solana recorded 16/**30 (53%)** green days with **5.95%** price volatility over the last 30 days. Based on the Solana forecast, it's now a good time to buy Solana.
 
-The price of Solana is predicted to trend downward in the coming days, dipping as low as **$ 0.00** by Invalid Date. This would represent a **-100.00%** dip compared to today’s rates.
+Over the next five days, Solana will reach the highest price of **$ 189.45** on Aug 21, 2025, which would represent **0.03%** growth compared to the current price. This follows a **4.12%** price change over the last 7 days.
 
 ---
 
@@ -95,21 +131,21 @@ The price of Solana is predicted to trend downward in the coming days, dipping a
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $3,340 | **$3,276.55** | **47 days** | **Bearish** | **N/A** | **0.90%** |
+| $3,337 | **$3,264.44** | **47 days** | **Bearish** | **N/A** | **0.89%** |
 
 #### Short-Term Gold Price Targets
 | Month | Min. Price | Avg. Price | Max. Price | Potential ROI |
 | ------| -----------| -----------| -----------| --------------|
-| Aug 2025 | **$ 3,215.66** | **$ 3,286.25** | **$ 3,363.29** | 0.82% |
-| Sep 2025 | **$ 3,118.58** | **$ 3,241.98** | **$ 3,332.00** | 0.12% |
-| Oct 2025 | **$ 3,126.40** | **$ 3,186.02** | **$ 3,269.94** | 1.98% |
-| Nov 2025 | **$ 3,180.50** | **$ 3,219.58** | **$ 3,289.46** | 1.40% |
-| Dec 2025 | **$ 3,185.60** | **$ 3,275.99** | **$ 3,364.93** | 0.86% |
+| Aug 2025 | **$ 3,208.81** | **$ 3,292.84** | **$ 3,356.13** | 0.59% |
+| Sep 2025 | **$ 3,151.55** | **$ 3,255.03** | **$ 3,324.90** | 0.35% |
+| Oct 2025 | **$ 3,159.45** | **$ 3,219.70** | **$ 3,304.50** | 0.96% |
+| Nov 2025 | **$ 3,213.92** | **$ 3,250.90** | **$ 3,319.02** | 0.53% |
+| Dec 2025 | **$ 3,214.23** | **$ 3,305.43** | **$ 3,395.17** | 1.76% |
 
 #### Analysis
-According to our gold price forecast, the price of an ounce of gold is predicted to drop by **-1.89%** and reach **$ 3,276.55** by September 15, 2025. Per our tracked technical indicators, the current sentiment investor is **Bearish**. Gold recorded 47 green days with **0.90%** price volatility over the last 30 days.
+According to our gold price forecast, the price of an ounce of gold is predicted to drop by **-2.16%** and reach **$ 3,264.44** by September 16, 2025. Per our tracked technical indicators, the current sentiment investor is **Bearish**. Gold recorded 47 green days with **0.89%** price volatility over the last 30 days.
 
-In 2025, gold is anticipated to trade in a price channel between **$ 3,118.58** and **$ 3,364.93**, leading to an average annualized price of **$ 3,237.38**. This could result in a potential return on investment of **0.86%** compared to the current rates.
+In 2025, gold is anticipated to trade in a price channel between **$ 3,151.55** and **$ 3,395.17**, leading to an average annualized price of **$ 3,261.70**. This could result in a potential return on investment of **1.76%** compared to the current rates.
 
 ---
 
@@ -121,7 +157,7 @@ In 2025, gold is anticipated to trade in a price channel between **$ 3,118.58** 
 
 ---
 
-*最後更新時間: 2025-08-16 07:09:03 (台灣時間)*
+*最後更新時間: 2025-08-17 07:08:57 (台灣時間)*
 *資料來源: CoinCodex 自動化價格預測*
 
 **About**
