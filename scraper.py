@@ -359,7 +359,7 @@ def parse_old_readme_predictions():
         with open('README.md', 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Get tomorrow's date (what we predicted for "today") in Taiwan time
+        # Get today's date (what we want to compare with yesterday's prediction) in Taiwan time
         today = format_taiwan_date("%b %d, %Y")
         
         predictions = {}
@@ -369,6 +369,10 @@ def parse_old_readme_predictions():
         for section in sections[1:]:  # Skip first empty split
             lines = section.split('\n')
             crypto_name = lines[0].strip()
+            
+            # Skip if this is not a cryptocurrency section
+            if not any(crypto in crypto_name for crypto in ['Bitcoin', 'Ethereum', 'Ripple', 'Solana', 'Gold']):
+                continue
             
             # Look for price targets table
             in_targets_table = False
@@ -381,15 +385,19 @@ def parse_old_readme_predictions():
                     # Extract predicted price for today
                     parts = [p.strip() for p in line.split('|')]
                     if len(parts) >= 3:
-                        price_str = parts[2].replace('*', '').replace('$', '').replace(',', '').strip()
-                        try:
-                            predicted_price = float(price_str)
-                            predictions[crypto_name] = predicted_price
-                            print(f"Found prediction for {crypto_name}: ${predicted_price}")
-                            break
-                        except ValueError:
-                            continue
-                elif in_targets_table and line.startswith('####'):
+                        # For crypto: get price from column 2 (index 1) 
+                        # For Gold: get average price from column 3 (index 2)
+                        price_column = 2 if 'Gold' in crypto_name else 1
+                        if len(parts) > price_column:
+                            price_str = parts[price_column].replace('*', '').replace('$', '').replace(',', '').strip()
+                            try:
+                                predicted_price = float(price_str)
+                                predictions[crypto_name] = predicted_price
+                                print(f"Found prediction for {crypto_name}: ${predicted_price}")
+                                break
+                            except ValueError:
+                                continue
+                elif in_targets_table and (line.startswith('####') or line.startswith('---')):
                     break
         
         return predictions
@@ -595,6 +603,87 @@ def generate_summary_table(crypto_data):
     
     return table_content + "\n"
 
+def generate_prediction_accuracy_table(crypto_data):
+    """Generate comparison table between today's current price and yesterday's predicted price"""
+    # Parse old predictions from README
+    old_predictions = parse_old_readme_predictions()
+    
+    if not old_predictions:
+        return ""
+    
+    today_taiwan = format_taiwan_date("%Y年%m月%d日")
+    
+    table_content = f"""## {today_taiwan}預測準確度檢討
+
+| 幣種/資產 | 昨日預測價格 | 今日實際價格 | 價差 | 準確度 | 表現 |
+|---------|-------------|-------------|------|--------|------|
+"""
+    
+    accuracy_data = []
+    
+    for crypto_name, predicted_price in old_predictions.items():
+        if crypto_name in crypto_data:
+            current_price_str = crypto_data[crypto_name].get('current_price')
+            if current_price_str:
+                try:
+                    # Extract numeric value from current price
+                    current_price = float(current_price_str.replace('$', '').replace(',', ''))
+                    
+                    # Calculate metrics
+                    price_diff = current_price - predicted_price
+                    percentage_error = abs(price_diff) / current_price * 100 if current_price > 0 else 0
+                    accuracy = max(0, 100 - percentage_error)
+                    
+                    # Determine performance emoji and text
+                    if price_diff > 0:
+                        performance_emoji = "📈"
+                        performance_text = f"高於預測 ${price_diff:,.0f}"
+                    elif price_diff < 0:
+                        performance_emoji = "📉"
+                        performance_text = f"低於預測 ${abs(price_diff):,.0f}"
+                    else:
+                        performance_emoji = "🎯"
+                        performance_text = "完全準確"
+                    
+                    # Format prices with proper commas
+                    formatted_predicted = f"${predicted_price:,.0f}"
+                    formatted_current = f"${current_price:,.0f}"
+                    formatted_diff = f"${abs(price_diff):,.0f}"
+                    
+                    accuracy_data.append({
+                        'name': crypto_name,
+                        'predicted': formatted_predicted,
+                        'actual': formatted_current,
+                        'diff': formatted_diff,
+                        'accuracy': f"{accuracy:.1f}%",
+                        'performance': f"{performance_emoji} {performance_text}",
+                        'accuracy_value': accuracy
+                    })
+                    
+                except ValueError:
+                    continue
+    
+    # Sort by accuracy descending
+    accuracy_data.sort(key=lambda x: x['accuracy_value'], reverse=True)
+    
+    # Add rows to table
+    for data in accuracy_data:
+        table_content += f"| **{data['name']}** | {data['predicted']} | **{data['actual']}** | {data['diff']} | **{data['accuracy']}** | {data['performance']} |\n"
+    
+    if accuracy_data:
+        # Add summary
+        avg_accuracy = sum(d['accuracy_value'] for d in accuracy_data) / len(accuracy_data)
+        table_content += f"\n**整體預測準確度: {avg_accuracy:.1f}%**\n\n"
+        
+        # Find best and worst predictions
+        best = max(accuracy_data, key=lambda x: x['accuracy_value'])
+        worst = min(accuracy_data, key=lambda x: x['accuracy_value'])
+        
+        table_content += f"- 🏆 **最準確預測**: {best['name']} ({best['accuracy']})\n"
+        table_content += f"- ⚠️ **需改進預測**: {worst['name']} ({worst['accuracy']})\n\n"
+    
+    return table_content
+
 def update_readme(crypto_data, accuracy_results=None):
     """Update README.md with the scraped predictions for multiple cryptocurrencies"""
     current_time = format_taiwan_date("%Y-%m-%d")
@@ -611,6 +700,8 @@ def update_readme(crypto_data, accuracy_results=None):
 *Last updated: {current_time}*
 
 {generate_summary_table(crypto_data)}
+
+{generate_prediction_accuracy_table(crypto_data)}
 
 ## Current Price Predictions from CoinCodex
 
@@ -675,28 +766,6 @@ def update_readme(crypto_data, accuracy_results=None):
         
         readme_content += "---\n\n"
     
-    readme_content += """---
-
-## Prediction Accuracy Analysis
-
-"""
-    
-    # Add prediction accuracy section if we have results
-    if accuracy_results:
-        accuracy_check_time = format_taiwan_date("%Y-%m-%d %H:%M:%S")
-        readme_content += f"*Last prediction check: {accuracy_check_time}*\n\n"
-        readme_content += "| Cryptocurrency | Predicted Price | Actual Price | Error | Accuracy |\n"
-        readme_content += "|----------------|-----------------|--------------|-------|----------|\n"
-        
-        for crypto_name, result in accuracy_results.items():
-            readme_content += f"| {crypto_name} | **${result['predicted_price']:.2f}** | **${result['actual_price']:.2f}** | ${result['error']:.2f} | **{result['accuracy']:.1f}%** |\n"
-        
-        # Calculate overall accuracy
-        if accuracy_results:
-            avg_accuracy = sum(r['accuracy'] for r in accuracy_results.values()) / len(accuracy_results)
-            readme_content += f"\n**Overall Prediction Accuracy: {avg_accuracy:.1f}%**\n\n"
-    else:
-        readme_content += "*No previous predictions available for comparison.*\n\n"
     
     taiwan_timestamp = get_taiwan_time().strftime("%Y-%m-%d %H:%M:%S")
     readme_content += f"""---
