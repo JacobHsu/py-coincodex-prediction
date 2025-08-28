@@ -56,36 +56,112 @@ def extract_price_predictions(driver, crypto_name):
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
         
-        # Wait a bit more for dynamic content
-        time.sleep(5)
+        # Wait longer for dynamic content to load
+        time.sleep(8)
         
-        # Find all paragraph elements with the specific attributes
-        paragraphs = driver.find_elements(By.CSS_SELECTOR, "p[_ngcontent-coincodex][apprenderdynamiccomponents]")
+        print(f"Extracting predictions for {crypto_name}...")
         
-        for p in paragraphs:
-            text = clean_text(p.text)
-            if text and len(text) > 50:  # Only include substantial content
-                predictions.append(text)
+        # Multiple strategies to find prediction content
+        selectors_to_try = [
+            # Original specific selector
+            "p[_ngcontent-coincodex][apprenderdynamiccomponents]",
+            # More general Angular selectors
+            "p[_ngcontent-coincodx]",
+            "p[apprenderdynamiccomponents]",
+            # General content selectors
+            ".prediction-content p",
+            ".forecast-content p",
+            ".analysis-content p",
+            # Fallback to any paragraph with prediction keywords
+            "p"
+        ]
         
-        # If no specific paragraphs found, look for general prediction content
+        for selector in selectors_to_try:
+            try:
+                paragraphs = driver.find_elements(By.CSS_SELECTOR, selector)
+                print(f"  Trying selector '{selector}': found {len(paragraphs)} elements")
+                
+                for p in paragraphs:
+                    text = clean_text(p.text)
+                    # Look for prediction-related content
+                    if (text and len(text) > 50 and 
+                        any(keyword in text.lower() for keyword in 
+                            ['prediction', 'forecast', 'price', 'reach', 'rise', 'fall', 'target', 'sentiment', 'bullish', 'bearish'])):
+                        predictions.append(text)
+                        print(f"  Found prediction text: {text[:100]}...")
+                
+                # If we found predictions with this selector, stop trying others
+                if predictions:
+                    print(f"  Successfully found {len(predictions)} predictions with selector: {selector}")
+                    break
+                    
+            except Exception as e:
+                print(f"  Error with selector '{selector}': {e}")
+                continue
+        
+        # If still no predictions, try XPath approach
         if not predictions:
-            # Look for divs or sections containing prediction text
-            content_elements = driver.find_elements(By.XPATH, "//p[contains(text(), 'prediction') or contains(text(), 'price') or contains(text(), '$') or contains(text(), 'forecast')]")
-            
-            for element in content_elements:
-                text = clean_text(element.text)
-                if text and len(text) > 50:
-                    predictions.append(text)
+            print("  Trying XPath approach...")
+            try:
+                xpath_selectors = [
+                    "//p[contains(text(), 'prediction') or contains(text(), 'forecast')]",
+                    "//p[contains(text(), 'price') and contains(text(), '$')]",
+                    "//p[contains(text(), 'sentiment') or contains(text(), 'bullish') or contains(text(), 'bearish')]",
+                    "//div[contains(@class, 'content')]//p[string-length(text()) > 50]",
+                    "//article//p[string-length(text()) > 50]",
+                    "//main//p[string-length(text()) > 50]"
+                ]
+                
+                for xpath in xpath_selectors:
+                    try:
+                        elements = driver.find_elements(By.XPATH, xpath)
+                        print(f"  XPath '{xpath}': found {len(elements)} elements")
+                        
+                        for element in elements:
+                            text = clean_text(element.text)
+                            if text and len(text) > 50:
+                                predictions.append(text)
+                                print(f"  Found via XPath: {text[:100]}...")
+                        
+                        if predictions:
+                            break
+                            
+                    except Exception as e:
+                        continue
+            except Exception as e:
+                print(f"  XPath approach failed: {e}")
+        
+        # If still no predictions, try to get any substantial text content
+        if not predictions:
+            print("  Trying fallback: any substantial text content...")
+            try:
+                # Get all text elements and filter for prediction-like content
+                all_elements = driver.find_elements(By.XPATH, "//*[string-length(text()) > 100]")
+                
+                for element in all_elements:
+                    text = clean_text(element.text)
+                    # More lenient criteria for fallback
+                    if (text and len(text) > 100 and '$' in text and 
+                        any(keyword in text.lower() for keyword in ['price', 'prediction', 'forecast', '%'])):
+                        predictions.append(text)
+                        print(f"  Fallback found: {text[:100]}...")
+                        if len(predictions) >= 2:  # Limit fallback results
+                            break
+                            
+            except Exception as e:
+                print(f"  Fallback approach failed: {e}")
         
         # Remove duplicates while preserving order
         unique_predictions = []
         seen = set()
         for pred in predictions:
-            if pred not in seen:
+            if pred not in seen and len(pred) > 50:
                 unique_predictions.append(pred)
                 seen.add(pred)
         
-        # Only return first 2 predictions as requested
+        print(f"  Final result: {len(unique_predictions)} unique predictions found")
+        
+        # Return first 2 predictions as requested
         return unique_predictions[:2]
     
     except Exception as e:
@@ -825,13 +901,24 @@ def main():
             
             try:
                 driver.get(url)
+                print(f"Page loaded for {crypto_name}")
+                
+                # Wait for page to fully load
+                time.sleep(5)
                 
                 # Extract current price first
                 current_price = extract_current_price(driver, crypto_name)
                 print(f"Current price for {crypto_name}: {current_price}")
                 
-                # Extract predictions
+                # Extract predictions with retry logic
                 predictions = extract_price_predictions(driver, crypto_name)
+                
+                # If no predictions found, try refreshing the page once
+                if not predictions:
+                    print(f"No predictions found for {crypto_name}, trying page refresh...")
+                    driver.refresh()
+                    time.sleep(8)
+                    predictions = extract_price_predictions(driver, crypto_name)
                 
                 # Extract price targets table
                 price_targets = extract_price_targets_table(driver, crypto_name)
