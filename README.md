@@ -13,19 +13,22 @@
 
 | 幣種/資產 | 目前價格 | 明日預測價格 | 潛在投報率 | 市場情緒 | 恐慌貪婪指數 | 波動率 |
 |---------|---------|-------------|-----------|----------|------------|--------|
-| **Ethereum (ETH)** | $4,618.0 | **$ 4,668.87** | **2.92%** | 🟢 **Bullish** | 51 (neutral) | 9.73% |
-| **Gold** | $3,379.0 | **$ 3,404.37** | **0.43%** | 🟢 **Bullish** | N/A | 0.81% |
-| **Bitcoin (BTC)** | $111,549.0 | N/A | N/A | 🟡 **Neutral** | 51 (neutral) | 2.21% |
+| **Ethereum (ETH)** | $4,512.0 | **$ 4,511.98** | **2.13%** | 🟢 **Bullish** | 48 (neutral) | 9.75% |
+| **Solana (SOL)** | $211.0 | **$ 211.20** | **1.80%** | 🟢 **Bullish** | 48 (neutral) | 6.88% |
+| **Bitcoin (BTC)** | $113,049.0 | **$ 114,181** | **0.92%** | 🟡 **Neutral** | 48 (neutral) | 2.29% |
+| **Gold** | $3,396.0 | **$ 3,405.93** | **0.49%** | 🟢 **Bullish** | N/A | 0.81% |
+| **Ripple (XRP)** | $3.0 | N/A | N/A | 🟢 **Bullish** | 48 (neutral) | 3.88% |
 
 ## 重點摘要
 
 ### 📈 最佳表現預測
-1. **Ethereum (ETH)**: 2.92% 潛在收益
-2. **Gold**: 0.43% 潛在收益
+1. **Ethereum (ETH)**: 2.13% 潛在收益
+2. **Solana (SOL)**: 1.80% 潛在收益
+3. **Bitcoin (BTC)**: 0.92% 潛在收益
 
 ### 🎯 市場情緒分析
 - **整體市場情緒**: 大部分加密貨幣呈現**看漲**態勢
-- **恐慌貪婪指數**: 51 (neutral) - 顯示市場情緒狀態
+- **恐慌貪婪指數**: 48 (neutral) - 顯示市場情緒狀態
 
 
 
@@ -38,21 +41,21 @@
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $4,618 | **$5,145.54** | **13/30 (43%)** | **Bullish** | **51 (neutral)** | **9.73%** |
+| $4,512 | **$5,029.43** | **13/30 (43%)** | **Bullish** | **48 (neutral)** | **9.75%** |
 
 #### Short-Term Ethereum (ETH) Price Targets
 | Date | Prediction | Potential ROI |
 | -----| -----------| --------------|
-| Aug 28, 2025 | **$ 4,617.89** | 1.79% |
-| Aug 29, 2025 | **$ 4,668.87** | 2.92% |
-| Aug 30, 2025 | **$ 4,761.07** | 4.95% |
-| Aug 31, 2025 | **$ 4,952.50** | 9.17% |
-| Sep 01, 2025 | **$ 5,087.07** | 12.14% |
+| Aug 29, 2025 | **$ 4,511.98** | 2.13% |
+| Aug 30, 2025 | **$ 4,561.97** | 1.05% |
+| Aug 31, 2025 | **$ 4,652.39** | 0.91% |
+| Sep 01, 2025 | **$ 4,840.13** | 4.98% |
+| Sep 02, 2025 | **$ 4,972.09** | 7.84% |
 
 #### Analysis
-According to our current Ethereum price prediction, the price of Ethereum is predicted to rise by **11.43%** and reach **$ 5,145.54** by September 26, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **51 (neutral)**. Ethereum recorded 13/**30 (43%)** green days with **9.73%** price volatility over the last 30 days. Based on the Ethereum forecast, it's now a good time to **buy Ethereum**.
+According to our current Ethereum price prediction, the price of Ethereum is predicted to rise by **11.47%** and reach **$ 5,029.43** by September 27, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **48 (neutral)**. Ethereum recorded 13/**30 (43%)** green days with **9.75%** price volatility over the last 30 days. Based on the Ethereum forecast, it's now a good time to **buy Ethereum**.
 
-Over the next five days, Ethereum will reach the highest price of **$ 5,087.07** on Sep 01, 2025, which would represent **12.14%** growth compared to the current price. This follows a **4.46%** price change over the last 7 days.
+Over the next five days, Ethereum will reach the highest price of **$ 4,972.09** on Sep 02, 2025, which would represent **7.82%** growth compared to the current price. This follows a **7.30%** price change over the last 7 days.
 
 ---
 
@@ -61,33 +64,67 @@ Over the next five days, Ethereum will reach the highest price of **$ 5,087.07**
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $111,549 | **$119,146** | **13/30 (43%)** | **Neutral** | **51 (neutral)** | **2.21%** |
+| $113,049 | **$120,239** | **13/30 (43%)** | **Neutral** | **48 (neutral)** | **2.29%** |
 
 #### Short-Term Bitcoin (BTC) Price Targets
-| Date | Price Target |
-| -----| -------------|
-| Total | **Total Market Cap: $ 3.87T (-0.36%)** |
-| According | **According to our current Bitcoin price prediction, the price of Bitcoin is predicted to rise by 6.81% and reach $ 119,146 by September 26, 2025. Per our technical indicators, the current sentiment is Neutral while the Fear & Greed Index is showing 51 (neutral). Bitcoin recorded 13/30 (43%) green days with 2.21% price volatility over the last 30 days. Based on the Bitcoin forecast, it's now a good time to buy Bitcoin.** |
-| If | **If you invest $ 1,000.00 in Bitcoin today and hold until Dec 23, 2025, our prediction suggests you could see a potential profit of $ 299.02, reflecting a 29.90% ROI over the next 117 days (fees are not included in this estimate).** |
-| Aug | **Aug 28, 2025 $ 112,669** |
-| Aug | **Aug 29, 2025 $ 114,408** |
+| Date | Prediction | Potential ROI |
+| -----| -----------| --------------|
+| Aug 29, 2025 | **$ 114,181** | 0.92% |
+| Aug 30, 2025 | **$ 115,850** | 2.39% |
+| Aug 31, 2025 | **$ 117,519** | 3.87% |
+| Sep 01, 2025 | **$ 119,611** | 5.72% |
+| Sep 02, 2025 | **$ 121,942** | 7.78% |
 
 #### Analysis
-According to our current Bitcoin price prediction, the price of Bitcoin is predicted to rise by **6.81%** and reach **$ 119,146** by September 26, 2025. Per our technical indicators, the current sentiment is Neutral while the Fear & Greed Index is showing **51 (neutral)**. Bitcoin recorded 13/**30 (43%)** green days with **2.21%** price volatility over the last 30 days. Based on the Bitcoin forecast, it's now a good time to **buy Bitcoin**.
+According to our current Bitcoin price prediction, the price of Bitcoin is predicted to rise by **6.36%** and reach **$ 120,239** by September 27, 2025. Per our technical indicators, the current sentiment is Neutral while the Fear & Greed Index is showing **48 (neutral)**. Bitcoin recorded 13/**30 (43%)** green days with **2.29%** price volatility over the last 30 days. Based on the Bitcoin forecast, it's now a good time to **buy Bitcoin**.
 
-Over the next five days, Bitcoin will reach the highest price of **$ 120,745** on Sep 01, 2025, which would represent **8.33%** growth compared to the current price. This follows a **-2.57%** price change over the last 7 days.
+Over the next five days, Bitcoin will reach the highest price of **$ 121,942** on Sep 02, 2025, which would represent **7.78%** growth compared to the current price. This follows a **-0.57%** price change over the last 7 days.
 
 ---
 
 ### Ripple (XRP)
 
-No predictions available at this time.
+#### Market Summary
+| Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
+|---------------|------------------|------------|-----------|-------------------|------------|
+| $3 | **$2.98** | **11/30 (37%)** | **Bullish** | **48 (neutral)** | **3.88%** |
+
+#### Short-Term Ripple (XRP) Price Targets
+| Date | Price Target |
+| -----| -------------|
+| Total | **Total Market Cap: $ 3.94T (2.03%)** |
+| According | **According to our current XRP price prediction, the price of XRP is predicted to drop by -0.74% and reach $ 2.98 by September 27, 2025. Per our technical indicators, the current sentiment is Bullish while the Fear & Greed Index is showing 48 (neutral). XRP recorded 11/30 (37%) green days with 3.88% price volatility over the last 30 days. Based on the XRP forecast, it's now a good time to buy XRP.** |
+| If | **If you invest $ 1,000.00 in XRP today and hold until Nov 15, 2025, our prediction suggests you could see a potential profit of $ 183.06, reflecting a 18.31% ROI over the next 78 days (fees are not included in this estimate).** |
+| Aug | **Aug 29, 2025 $ 3.00** |
+| Aug | **Aug 30, 2025 $ 2.97** |
+
+#### Analysis
+According to our current XRP price prediction, the price of XRP is predicted to drop by **-0.74%** and reach **$ 2.98** by September 27, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **48 (neutral)**. XRP recorded 11/**30 (37%)** green days with **3.88%** price volatility over the last 30 days. Based on the XRP forecast, it's now a good time to buy XRP.
+
+The price of XRP is predicted to trend downward in the coming days, dipping as low as **$ 0.00** by Invalid Date. This would represent a **-100.00%** dip compared to today’s rates.
 
 ---
 
 ### Solana (SOL)
 
-No predictions available at this time.
+#### Market Summary
+| Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
+|---------------|------------------|------------|-----------|-------------------|------------|
+| $211 | **$218.62** | **17/30 (57%)** | **Bullish** | **48 (neutral)** | **6.88%** |
+
+#### Short-Term Solana (SOL) Price Targets
+| Date | Prediction | Potential ROI |
+| -----| -----------| --------------|
+| Aug 29, 2025 | **$ 211.20** | 1.80% |
+| Aug 30, 2025 | **$ 211.31** | 1.75% |
+| Aug 31, 2025 | **$ 211.41** | 1.70% |
+| Sep 01, 2025 | **$ 211.51** | 1.65% |
+| Sep 02, 2025 | **$ 211.73** | 1.55% |
+
+#### Analysis
+According to our current Solana price prediction, the price of Solana is predicted to rise by **3.51%** and reach **$ 218.62** by September 27, 2025. Per our technical indicators, the current sentiment is **Bullish** while the Fear & Greed Index is showing **48 (neutral)**. Solana recorded 17/**30 (57%)** green days with **6.88%** price volatility over the last 30 days. Based on the Solana forecast, it's now a good time to buy Solana.
+
+The price of Solana is predicted to trend downward in the coming days, dipping as low as **$ 0.00** by Invalid Date. This would represent a **-100.00%** dip compared to today’s rates.
 
 ---
 
@@ -96,27 +133,27 @@ No predictions available at this time.
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $3,379 | **$3,461.01** | **50 days** | **Bullish** | **N/A** | **0.81%** |
+| $3,396 | **$3,446.79** | **53 days** | **Bullish** | **N/A** | **0.81%** |
 
 #### Short-Term Gold Price Targets
 | Month | Min. Price | Avg. Price | Max. Price | Potential ROI |
 | ------| -----------| -----------| -----------| --------------|
-| Aug 2025 | **$ 3,389.55** | **$ 3,404.37** | **$ 3,413.39** | 0.43% |
-| Sep 2025 | **$ 3,392.45** | **$ 3,441.32** | **$ 3,509.44** | 3.26% |
-| Oct 2025 | **$ 3,467.74** | **$ 3,534.27** | **$ 3,626.95** | 6.71% |
-| Nov 2025 | **$ 3,482.48** | **$ 3,555.16** | **$ 3,600.55** | 5.94% |
-| Dec 2025 | **$ 3,531.25** | **$ 3,630.69** | **$ 3,730.04** | 9.75% |
+| Aug 2025 | **$ 3,392.06** | **$ 3,405.93** | **$ 3,412.01** | 0.49% |
+| Sep 2025 | **$ 3,375.96** | **$ 3,424.52** | **$ 3,461.64** | 1.95% |
+| Oct 2025 | **$ 3,452.64** | **$ 3,519.22** | **$ 3,611.15** | 6.35% |
+| Nov 2025 | **$ 3,464.68** | **$ 3,538.36** | **$ 3,579.35** | 5.42% |
+| Dec 2025 | **$ 3,510.46** | **$ 3,608.30** | **$ 3,708.08** | 9.21% |
 
 #### Analysis
-According to our gold price forecast, the price of an ounce of gold is predicted to rise by **2.42%** and reach **$ 3,461.01** by September 27, 2025. Per our tracked technical indicators, the current sentiment investor is **Bullish**. Gold recorded 50 green days with **0.81%** price volatility over the last 30 days.
+According to our gold price forecast, the price of an ounce of gold is predicted to rise by **1.49%** and reach **$ 3,446.79** by September 28, 2025. Per our tracked technical indicators, the current sentiment investor is **Bullish**. Gold recorded 53 green days with **0.81%** price volatility over the last 30 days.
 
-In 2025, gold is anticipated to trade in a price channel between **$ 3,389.55** and **$ 3,730.04**, leading to an average annualized price of **$ 3,536.10**. This could result in a potential return on investment of **9.75%** compared to the current rates.
-
----
+In 2025, gold is anticipated to trade in a price channel between **$ 3,375.96** and **$ 3,708.08**, leading to an average annualized price of **$ 3,519.35**. This could result in a potential return on investment of **9.21%** compared to the current rates.
 
 ---
 
-*最後更新時間: 2025-08-28 07:10:28 (台灣時間)*
+---
+
+*最後更新時間: 2025-08-28 16:22:46 (台灣時間)*
 *資料來源: CoinCodex 自動化價格預測*
 
 **About**
