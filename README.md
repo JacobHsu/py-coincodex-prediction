@@ -7,31 +7,32 @@
 - [CoinCodex Solana Price Prediction](https://coincodex.com/crypto/solana/price-prediction/)
 - [CoinCodex Gold Forecast](https://coincodex.com/precious-metal/gold/forecast/)
 
-*Last updated: 2025-11-28*
+*Last updated: 2025-11-29*
 
-## 2025年11月29日價格預測總覽
+## 2025年11月30日價格預測總覽
 
 | 幣種/資產 | 目前價格 | 明日預測價格 | 潛在投報率 | 市場情緒 | 恐慌貪婪指數 | 波動率 |
 |---------|---------|-------------|-----------|----------|------------|--------|
-| **Gold** | $N/A | **$ 4,185.81** | **1.73%** | N/A | N/A | N/A |
-| **Ethereum (ETH)** | $3,030.0 | **$ 3,063.47** | **1.62%** | 🔴 **Bearish** | 22 (Extreme Fear) | 11.33% |
-| **Bitcoin (BTC)** | $91,420.0 | **$ 92,561** | **1.26%** | 🔴 **Bearish** | 22 (Extreme Fear) | 8.89% |
-| **Solana (SOL)** | $141.0 | **$ 141.42** | **0.23%** | 🔴 **Bearish** | 22 (Extreme Fear) | 13.49% |
-| **Ripple (XRP)** | $2.0 | **$ 2.19** | **-0.94%** | 🔴 **Bearish** | 22 (Extreme Fear) | 7.86% |
+| **Bitcoin (BTC)** | $91,399.0 | **$ 92,550** | **1.63%** | 🔴 **Bearish** | 25 (Extreme Fear) | 8.61% |
+| **Ethereum (ETH)** | $3,050.0 | **$ 3,084.25** | **1.33%** | 🔴 **Bearish** | 25 (Extreme Fear) | 10.76% |
+| **Gold** | $3,813.0 | **$ 4,206.35** | **0.86%** | N/A | N/A | N/A |
+| **Solana (SOL)** | $138.0 | **$ 137.80** | **-0.10%** | 🔴 **Bearish** | 25 (Extreme Fear) | 12.69% |
+| **Ripple (XRP)** | $2.0 | **$ 2.15** | **-1.59%** | 🔴 **Bearish** | 25 (Extreme Fear) | 7.44% |
 
 ## 重點摘要
 
 ### 📈 最佳表現預測
-1. **Gold**: 1.73% 潛在收益
-2. **Ethereum (ETH)**: 1.62% 潛在收益
-3. **Bitcoin (BTC)**: 1.26% 潛在收益
+1. **Bitcoin (BTC)**: 1.63% 潛在收益
+2. **Ethereum (ETH)**: 1.33% 潛在收益
+3. **Gold**: 0.86% 潛在收益
 
 ### 📉 下跌預測
-- **Ripple (XRP)**: -0.94% 預期下跌
+- **Solana (SOL)**: -0.10% 預期下跌
+- **Ripple (XRP)**: -1.59% 預期下跌
 
 ### 🎯 市場情緒分析
 - **整體市場情緒**: 大部分資產呈現**看跌**態勢
-- **恐慌貪婪指數**: 22 (Extreme Fear) - 顯示市場情緒狀態
+- **恐慌貪婪指數**: 25 (Extreme Fear) - 顯示市場情緒狀態
 
 
 
@@ -44,21 +45,21 @@
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $3,030 | **$3,381.29** | **13/30 (43%)** | **Bearish** | **22 (Extreme Fear)** | **11.33%** |
+| $3,050 | **$3,406.96** | **13/30 (43%)** | **Bearish** | **25 (Extreme Fear)** | **10.76%** |
 
 #### Short-Term Ethereum (ETH) Price Targets
 | Date | Prediction | Change |
 | -----| -----------| -------|
-| Nov 28, 2025 | **$ 3,029.78** | 0.50% |
-| Nov 29, 2025 | **$ 3,063.47** | 1.62% |
-| Nov 30, 2025 | **$ 3,126.99** | 3.73% |
-| Dec 01, 2025 | **$ 3,253.54** | 7.93% |
-| Dec 02, 2025 | **$ 3,338.98** | 10.76% |
+| Nov 29, 2025 | **$ 3,050.05** | 0.21% |
+| Nov 30, 2025 | **$ 3,084.25** | 1.33% |
+| Dec 01, 2025 | **$ 3,148.89** | 3.46% |
+| Dec 02, 2025 | **$ 3,277.33** | 7.68% |
+| Dec 03, 2025 | **$ 3,363.79** | 10.52% |
 
 #### Analysis
-According to our latest Ethereum price prediction, ETH is forecasted to rise by **11.60%** and reach **$ 3,381.29** by December 27, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **22 (Extreme Fear)**. Ethereum recorded 13/**30 (43%)** green days with **11.33%** price volatility over the last 30 days. Last update: Nov 27, 2025 - 07:53 PM (GMT+0).
+According to our latest Ethereum price prediction, ETH is forecasted to rise by **11.70%** and reach **$ 3,406.96** by December 28, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **25 (Extreme Fear)**. Ethereum recorded 13/**30 (43%)** green days with **10.76%** price volatility over the last 30 days. Last update: Nov 28, 2025 - 07:54 PM (GMT+0).
 
-Over the next five days, Ethereum will reach the highest price of **$ 3,338.98** on Dec 02, 2025, which would represent **10.75%** growth compared to the current price. This follows a **5.26%** price change over the last 7 days.
+Over the next five days, Ethereum will reach the highest price of **$ 3,363.79** on Dec 03, 2025, which would represent **10.51%** growth compared to the current price. This follows a **10.59%** price change over the last 7 days.
 
 ---
 
@@ -67,21 +68,21 @@ Over the next five days, Ethereum will reach the highest price of **$ 3,338.98**
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $91,420 | **$94,199** | **12/30 (40%)** | **Bearish** | **22 (Extreme Fear)** | **8.89%** |
+| $91,399 | **$89,991** | **13/30 (43%)** | **Bearish** | **25 (Extreme Fear)** | **8.61%** |
 
 #### Short-Term Bitcoin (BTC) Price Targets
 | Date | Prediction | Change |
 | -----| -----------| -------|
-| Nov 28, 2025 | **$ 92,336** | 1.01% |
-| Nov 29, 2025 | **$ 92,561** | 1.26% |
-| Nov 30, 2025 | **$ 92,786** | 1.51% |
-| Dec 01, 2025 | **$ 93,011** | 1.75% |
-| Dec 02, 2025 | **$ 93,237** | 2.00% |
+| Nov 29, 2025 | **$ 92,312** | 1.37% |
+| Nov 30, 2025 | **$ 92,550** | 1.63% |
+| Dec 01, 2025 | **$ 92,787** | 1.89% |
+| Dec 02, 2025 | **$ 93,024** | 2.15% |
+| Dec 03, 2025 | **$ 93,262** | 2.41% |
 
 #### Analysis
-According to our latest Bitcoin price prediction, BTC is forecasted to rise by **3.04%** and reach **$ 94,199** by December 26, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **22 (Extreme Fear)**. Bitcoin recorded 12/**30 (40%)** green days with **8.89%** price volatility over the last 30 days. Last update: Nov 27, 2025 - 04:43 PM (GMT+0).
+According to our latest Bitcoin price prediction, BTC is forecasted to drop by **-1.54%** and reach **$ 89,991** by December 27, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **25 (Extreme Fear)**. Bitcoin recorded 13/**30 (43%)** green days with **8.61%** price volatility over the last 30 days. Last update: Nov 28, 2025 - 04:43 PM (GMT+0).
 
-Over the next five days, Bitcoin will reach the highest price of **$ 93,237** on Dec 02, 2025, which would represent **2.00%** growth compared to the current price. This follows a **4.86%** price change over the last 7 days.
+Over the next five days, Bitcoin will reach the highest price of **$ 93,262** on Dec 03, 2025, which would represent **2.41%** growth compared to the current price. This follows a **7.29%** price change over the last 7 days.
 
 ---
 
@@ -90,21 +91,21 @@ Over the next five days, Bitcoin will reach the highest price of **$ 93,237** on
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $2 | **$2.19** | **11/30 (37%)** | **Bearish** | **22 (Extreme Fear)** | **7.86%** |
+| $2 | **$2.16** | **11/30 (37%)** | **Bearish** | **25 (Extreme Fear)** | **7.44%** |
 
 #### Short-Term Ripple (XRP) Price Targets
 | Date | Prediction | Change |
 | -----| -----------| -------|
-| Nov 28, 2025 | **$ 2.21** | 0.08% |
-| Nov 29, 2025 | **$ 2.19** | -0.94% |
-| Nov 30, 2025 | **$ 2.17** | -1.58% |
-| Dec 01, 2025 | **$ 2.17** | -1.54% |
-| Dec 02, 2025 | **$ 2.20** | -0.40% |
+| Nov 29, 2025 | **$ 2.17** | -0.57% |
+| Nov 30, 2025 | **$ 2.15** | -1.59% |
+| Dec 01, 2025 | **$ 2.14** | -2.22% |
+| Dec 02, 2025 | **$ 2.14** | -2.18% |
+| Dec 03, 2025 | **$ 2.16** | -1.05% |
 
 #### Analysis
-According to our latest XRP price prediction, XRP is forecasted to drop by **-0.74%** and reach **$ 2.19** by December 27, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **22 (Extreme Fear)**. XRP recorded 11/**30 (37%)** green days with **7.86%** price volatility over the last 30 days. Last update: Nov 27, 2025 - 06:02 PM (GMT+0).
+According to our latest XRP price prediction, XRP is forecasted to drop by **-0.73%** and reach **$ 2.16** by December 28, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **25 (Extreme Fear)**. XRP recorded 11/**30 (37%)** green days with **7.44%** price volatility over the last 30 days. Last update: Nov 28, 2025 - 06:03 PM (GMT+0).
 
-Over the next five days, XRP will reach the highest price of **$ 2.21** tomorrow, which would represent **0.08%** growth compared to the current price. This follows a **9.34%** price change over the last 7 days.
+The price of XRP is predicted to trend downward in the coming days, dipping as low as **$ 2.14** by Dec 01, 2025. This would represent a **-2.22%** dip compared to today’s rates.
 
 ---
 
@@ -113,21 +114,21 @@ Over the next five days, XRP will reach the highest price of **$ 2.21** tomorrow
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $141 | **$155.23** | **11/30 (37%)** | **Bearish** | **22 (Extreme Fear)** | **13.49%** |
+| $138 | **$151.74** | **11/30 (37%)** | **Bearish** | **25 (Extreme Fear)** | **12.69%** |
 
 #### Short-Term Solana (SOL) Price Targets
 | Date | Prediction | Change |
 | -----| -----------| -------|
-| Nov 28, 2025 | **$ 141.28** | 0.13% |
-| Nov 29, 2025 | **$ 141.42** | 0.23% |
-| Nov 30, 2025 | **$ 141.55** | 0.32% |
-| Dec 01, 2025 | **$ 141.74** | 0.45% |
-| Dec 02, 2025 | **$ 142.02** | 0.66% |
+| Nov 29, 2025 | **$ 137.66** | -0.20% |
+| Nov 30, 2025 | **$ 137.80** | -0.10% |
+| Dec 01, 2025 | **$ 137.93** | -0.00% |
+| Dec 02, 2025 | **$ 138.12** | 0.13% |
+| Dec 03, 2025 | **$ 138.41** | 0.34% |
 
 #### Analysis
-According to our latest Solana price prediction, SOL is forecasted to rise by **9.87%** and reach **$ 155.23** by December 27, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **22 (Extreme Fear)**. Solana recorded 11/**30 (37%)** green days with **13.49%** price volatility over the last 30 days. Last update: Nov 27, 2025 - 10:44 PM (GMT+0).
+According to our latest Solana price prediction, SOL is forecasted to rise by **10.23%** and reach **$ 151.74** by December 28, 2025. Per our technical indicators, the current sentiment is **Bearish** while the Fear & Greed Index is showing **25 (Extreme Fear)**. Solana recorded 11/**30 (37%)** green days with **12.69%** price volatility over the last 30 days. Last update: Nov 28, 2025 - 10:45 PM (GMT+0).
 
-Over the next five days, Solana will reach the highest price of **$ 142.02** on Dec 02, 2025, which would represent **0.67%** growth compared to the current price. This follows a **5.24%** price change over the last 7 days.
+Over the next five days, Solana will reach the highest price of **$ 138.41** on Dec 03, 2025, which would represent **0.34%** growth compared to the current price. This follows a **7.79%** price change over the last 7 days.
 
 ---
 
@@ -136,24 +137,24 @@ Over the next five days, Solana will reach the highest price of **$ 142.02** on 
 #### Market Summary
 | Current Price | Price Prediction | Green Days | Sentiment | Fear & Greed Index | Volatility |
 |---------------|------------------|------------|-----------|-------------------|------------|
-| $N/A | **N/A** | **N/A** | **N/A** | **N/A** | **N/A** |
+| $3,813 | **$4,161.70** | **N/A** | **N/A** | **N/A** | **N/A** |
 
 #### Short-Term Gold Price Targets
 | Month | Min. Price | Avg. Price | Max. Price | Change |
 | ------| -----------| -----------| -----------| -------|
-| Nov 2025 | **$ 4,143.31** | **$ 4,185.81** | **$ 4,233.19** | 1.73% |
-| Dec 2025 | **$ 4,183.58** | **$ 4,339.62** | **$ 4,532.23** | 8.92% |
+| Nov 2025 | **$ 4,161.70** | **$ 4,206.35** | **$ 4,251.97** | 0.86% |
+| Dec 2025 | **$ 4,216.97** | **$ 4,374.86** | **$ 4,591.28** | 8.91% |
 
 #### Analysis
-In 2025, Gold is anticipated to trade in a price channel between and , leading to an average annualized price of . This could result in a potential return on investment of compared to the current rates.
+In 2025, Gold is anticipated to trade in a price channel between **$ 4,161.70** and **$ 4,601.59**, leading to an average annualized price of **$ 4,365.31**. This could result in a potential return on investment of **9.15%** compared to the current rates.
 
-The Gold price forecast for 2025 is currently between on the lower end and on the high end. Compared to today’s price, Gold could gain by 2025 if it hits the upper price target.
-
----
+The Gold price forecast for 2025 is currently between **$ 4,161.70** on the lower end and **$ 4,601.59** on the high end. Compared to today’s price, Gold could gain **9.15%** by 2025 if it hits the upper price target.
 
 ---
 
-*最後更新時間: 2025-11-28 07:09:04 (台灣時間)*
+---
+
+*最後更新時間: 2025-11-29 07:09:08 (台灣時間)*
 *資料來源: CoinCodex 自動化價格預測*
 
 **About**
